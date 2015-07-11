@@ -1,8 +1,7 @@
 body {
 	background-color: "green";
-	background-image: url('/images/Blackjack_wikipedia.jpg'); 
+	background-image: image-url('/images/Blackjack_wikipedia.jpg'); 
 	background-position: center;
-	
 }
 
 
