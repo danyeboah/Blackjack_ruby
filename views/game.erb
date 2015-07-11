@@ -1,0 +1,84 @@
+<link href = '/game.css' rel = 'stylesheet' />
+<div id = 'game_div'>
+
+	<h1 id ="title_center"> Danyeboah Blackjack </h1>
+	<p id = "welcome_name" class="display_text"><strong> Welcome <%= session[:user_name] %> </strong></p>
+		<!-- display winning or losing message -->
+	<% if @winning %>
+    <div class="alert alert-success"><%=@winning%></div>
+  <% elsif @losing %>
+    <div class="alert alert-error"><%=@losing%></div>
+  <% end %>
+
+	<% if @play_again %>
+		<p><Strong> Play Again? </Strong> 
+			<a href = '/bet' class = 'btn btn-primary'> Yes </a>
+			<a href = '/game/game_over' class = 'btn btn-danger'> No </a>
+		</p>
+	<% end %>
+
+	<div class="well">
+		<!-- When it's the dealer's turn display all cards, else display only second card -->
+		<h4> Dealer cards </h4>
+		<% if @dealer_turn %>
+			<% if @computer_hits %>
+				<p class="display_text computer_choice"> Dealer chose to hit </p>
+			<% end %>
+
+			<% if @computer_stays %>
+				<p class="display_text computer_choice"> Dealer chose to stay </p>
+			<% end %>
+			
+			
+			<% session[:computer_cards].each do |card| %>
+				<%= card_image(card) %>
+			<% end %>	
+
+			<p class ="display_text results"> Dealer has a total of <%= card_total(session[:computer_cards]) %> </p>
+
+		<% else %>
+			<img src='/images/cards/cover.jpg' alt='cover' />
+			<%= card_image(session[:computer_cards][1]) %>	
+		<% end %>
+
+		<!-- show button for computer if necessary -->
+		<% if @show_computer_button %>
+			<form action = "/game/computer/computer_move" method = "post">	
+				<input id = 'computer_form' type="submit" class = "btn btn-primary" value="Click to see dealer's next card"> </input>
+			</form> 
+		<% end %>
+	</div>
+
+		<!-- display winning or losing message -->
+	<% if @winning %>
+    <div class="alert alert-success"><%=@winning%></div>
+  <% elsif @losing %>
+    <div class="alert alert-error"><%=@losing%></div>
+  <% end %>
+
+	<div class="well">
+		<h4> Player cards </h4>
+		<% session[:user_cards].each do |card| %>
+		<%= card_image(card) %>
+		<% end %>
+		<p class ="display_text results"> You have a total of <%= card_total(session[:user_cards]) %> </p>
+
+		<% if @show_hit_stay_buttons %> 
+		<form  class="action_buttons" action="/game/player/hit" method="post"> 
+		<input id = "hit_form" type="submit" class = "btn btn-success" value="HIT"> </input>
+
+		</form>
+
+		<form class="action_buttons" action="/game/player/stay" method="post"> 
+		<input id = "stay_form" type="submit" class = "btn btn-warning" value="STAY"> </input>
+
+		</form>
+	</div>
+
+	<p class = "display_text money_status"> You currently have a total amount of <span id = 'current_money'>$<%= session[:money_remaining] %> </span> </p>
+
+	<p class = "display_text money_status"> You bet <span id = 'money_bet'>$<%= session[:bet_amount] %> </span> for this game </p>
+
+	
+	<% end %>
+</div>

@@ -1,0 +1,11 @@
+<link href = '/bet.css' rel = 'stylesheet' />
+
+<h3> How much are you willing to bet for this round? </h3>
+
+<p> You currently have <span> $<%= session[:money_remaining] %> </span> </p>
+
+<form action = '/bet/bet_post' method = 'post'>
+	<input type='text' name= 'bet_amount' />
+	<br/>
+	<input type='submit' class = 'btn btn-primary' value="Make Bet"/>
+</form>

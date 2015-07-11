@@ -1,0 +1,24 @@
+h3 {
+	text-align: center;
+	font-size: 30px;
+	color: #FFCC00 ;
+	padding-top: 100px;
+}
+
+form {
+	margin-top: 10px;
+	font-size: 18px;
+	text-align: center;
+}
+
+p {
+	font-family: cursive, "Times New Roman", serif;
+	font-size: 23px;
+	color: white;
+	text-align: center;
+	margin-top: 50px;
+}
+
+span {
+	color: blue;
+}

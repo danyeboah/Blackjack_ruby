@@ -1,0 +1,30 @@
+body {
+	background-color: "green";
+	background-image: url('/images/Blackjack_wikipedia.jpg'); 
+	background-position: center;
+	
+}
+
+
+
+img.image_card {
+	margin: 10px 2px;
+}
+
+p.display_text {
+	font-size: 18px;
+}
+
+p.results {
+	color: green;
+}
+
+p.computer_choice {
+	color: green;
+}
+
+form.action_buttons {
+	display: inline;
+	margin: 0px 10px;
+}
+

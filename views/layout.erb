@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Danyeboah Blackjack</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/application.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="/player_actions.js"> </script>
+
+
+  </head>
+  <body style="padding-top: 50px;">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+              <li><a href="/">New Game</a></li>
+              <li><a href="/game/game_over">Quit </a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <%if @error %>
+      <div class="alert alert-error"><%=@error%></div>
+    <% end %>
+
+    <%if @success %>
+      <div class="alert alert-success"><%=@success%></div>
+    <% end %>
+
+
+
+      <%= yield %>
+  </div>
+  </body>
+</html>

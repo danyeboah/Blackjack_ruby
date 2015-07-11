@@ -1,0 +1,29 @@
+span#current_money {
+	color: blue;
+}
+
+span#money_bet {
+	color: red;
+}
+
+p.money_status {
+	font-weight: bold;
+	font-family: Arial, serif;
+	color: white;
+}
+
+div.well {
+	background-color: #E8E8E8;
+}
+
+h1#title_center {
+	text-align: center;
+	font-family: cursive, "Times New Roman", serif;
+	font-size: 45px;
+}
+
+p#welcome_name {
+	text-align: center;
+	font-family: cursive, "Times New Roman", serif;
+	font-size: 28px;
+}
