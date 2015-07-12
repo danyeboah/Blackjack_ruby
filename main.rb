@@ -33,12 +33,10 @@ helpers do
     return total
   end
 
-
   def card_image(card)
     card_name = card[0] + "_" + card[1] + ".jpg"
     return "<img src='/images/cards/#{card_name}' class='image_card' alt = #{card} />" 
   end
-
 
   def player_wins(message)
     @winning = message
@@ -55,8 +53,6 @@ helpers do
     @play_again = true
     @show_computer_button = false
   end
-
-
 end
 
 before do
@@ -64,7 +60,6 @@ before do
   @dealer_turn = false
   @play_again = false
 end
-
 
 get '/' do 
   session[:money_remaining] = 500
@@ -98,9 +93,7 @@ post '/bet/bet_post' do
   else
     @error = "Duh...You cannot bet more or less than you have"
     halt erb :bet
-  end
-
-  
+  end  
 end
 
 post '/user_name_action' do
@@ -108,11 +101,9 @@ post '/user_name_action' do
     @error = "Please type in a name"
     halt erb :user_name_form
   end
-
 	session[:user_name] = params[:user_name]
 	redirect '/bet'
 end
-
 
 get '/game' do
 	cards = []
@@ -127,7 +118,6 @@ get '/game' do
   deck = suits.product(cards).shuffle!
 
   session[:deck] = deck
-
   session[:user_cards] = []
   session[:computer_cards] = []
 
@@ -143,19 +133,16 @@ end
 
 post '/game/player/hit' do
   session[:user_cards] << session[:deck].pop
-
   user_total = card_total(session[:user_cards])
   if user_total> BLACKJACK_NUMBER
     player_loses("Sorry #{session[:user_name]}...You Busted! at #{user_total}") 
   elsif user_total == BLACKJACK_NUMBER
     player_wins("BLACKJACK! You Won $#{session[:bet_amount]}!!!")
   end
-
   erb :game
 end
 
 post '/game/player/stay' do
-  
   @show_hit_stay_buttons = false
   @dealer_turn = true
   @show_computer_button = true
@@ -190,7 +177,6 @@ post '/game/computer/computer_move' do
   computer_total = card_total(session[:computer_cards])
   if computer_total > BLACKJACK_NUMBER
     player_wins("You won #{session[:user_name]}! Dealer busted! at #{computer_total} You won $#{session[:bet_amount]}")
-    
   end
 
   erb :game
@@ -200,8 +186,7 @@ get '/game/decide_winner' do
   @dealer_turn = true
   @show_hit_stay_buttons = false
   @computer_stays = true
-
-
+  
   computer_total = card_total(session[:computer_cards])
   user_total = card_total(session[:user_cards])
 

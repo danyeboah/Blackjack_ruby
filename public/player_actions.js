@@ -17,7 +17,6 @@ function player_hit() {
 	});
 }
 
-
 function player_stay(){
 	$(document).on('click', '#stay_form', function(){
 		$.ajax({

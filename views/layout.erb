@@ -5,13 +5,10 @@
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/application.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="/player_actions.js"> </script>
-
-
+   <script src="/player_actions.js"> </script>
   </head>
-  <body style="padding-top: 50px;">
 
+  <body style="padding-top: 50px;">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -31,9 +28,6 @@
     <%if @success %>
       <div class="alert alert-success"><%=@success%></div>
     <% end %>
-
-
-
       <%= yield %>
   </div>
   </body>

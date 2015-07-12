@@ -1,11 +1,9 @@
-
 h1 {
 	text-align: center;
 	font-family: cursive, "Times New Roman", serif;
 	font-size: 45px;
 	color: #FFCC00 ;
 	padding-top: 100px;
-
 }
 
 p {
@@ -16,14 +14,12 @@ p {
 	font-family: cursive, "Times New Roman", serif;
 }
 
-
-
 form {
 	margin-top: 10px;
 	font-size: 18px;
 	text-align: center;
-
 }
+
 label {
 	font-size: 22px;
 	color: #0033FF;
@@ -33,5 +29,4 @@ label {
 
 span {
 	font-family: cursive, "Times New Roman", serif;
-
 }

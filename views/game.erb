@@ -48,7 +48,7 @@
 			</form> 
 		<% end %>
 	</div>
-
+	
 		<!-- display winning or losing message -->
 	<% if @winning %>
     <div class="alert alert-success"><%=@winning%></div>
@@ -71,14 +71,11 @@
 
 		<form class="action_buttons" action="/game/player/stay" method="post"> 
 		<input id = "stay_form" type="submit" class = "btn btn-warning" value="STAY"> </input>
-
 		</form>
 	</div>
 
 	<p class = "display_text money_status"> You currently have a total amount of <span id = 'current_money'>$<%= session[:money_remaining] %> </span> </p>
 
 	<p class = "display_text money_status"> You bet <span id = 'money_bet'>$<%= session[:bet_amount] %> </span> for this game </p>
-
-	
 	<% end %>
 </div>
